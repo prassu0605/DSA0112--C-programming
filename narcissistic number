@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath> 
+using namespace std;
+int main() {
+    int number, originalNum, remainder, sum = 0, digits = 0;
+    cout << "Enter a number: ";
+    cin >> number;
+    originalNum = number;
+    while (originalNum != 0) {
+        originalNum /= 10;
+        digits++;
+    }
+    originalNum = number;
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        sum += pow(remainder, digits);
+        originalNum /= 10;
+    }
+    if (sum == number) {
+        cout << number << " is a Narcissistic number." << endl;
+    } else {
+        cout << number << " is not a Narcissistic number." << endl;
+    }
+    return 0;
+}
