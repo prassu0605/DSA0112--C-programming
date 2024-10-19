@@ -1,0 +1,28 @@
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+int sumOfSquares(int num) {
+    int sum = 0;
+    while (num > 0) {
+        int digit = num % 10;
+        sum += digit * digit;
+        num /= 10;
+    }
+    return sum;
+}
+int main() {
+    int num;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+    unordered_set<int> seen;
+    while (num != 1 && seen.find(num) == seen.end()) {
+        seen.insert(num);
+        num = sumOfSquares(num);
+    }
+    if (num == 1) {
+        cout << "The number is a Happy number." << endl;
+    } else {
+        cout << "The number is not a Happy number." << endl;
+    }
+    return 0;
+}
