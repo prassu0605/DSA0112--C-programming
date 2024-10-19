@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int number, square, sumOfDigits = 0;
+    cout << "Enter a number: ";
+    cin >> number;
+    square = number * number;
+    while (square > 0) {
+        sumOfDigits += square % 10;
+        square /= 10;
+    }
+    if (sumOfDigits == number) {
+        cout << number << " is a Neon number." << endl;
+    } else {
+        cout << number << " is not a Neon number." << endl;
+    }
+    return 0;
+}
